@@ -35,3 +35,10 @@ en:
     omniauth_callbacks:
       failure:
         alert: Failure. Please try again
+  inboxes:
+    create:
+      notice: Inbox was successfully created.
+    update:
+      notice: Inbox was successfully updated.
+    destroy:
+      notice: Inbox was successfully destroyed.
