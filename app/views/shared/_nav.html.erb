@@ -1,5 +1,5 @@
 <% if user_signed_in? %>
-  <%= image_tag current_user.image, size: '30x30', alt: "#{current_user.email}" if current_user.image? %>
+  <%= image_tag current_user.image, size: '30x30', alt: current_user.email.to_s if current_user.image? %>
   <%= current_user.name %>
   <%= current_user.uid %>
   <%= current_user.provider %>
@@ -8,6 +8,6 @@
 <% else %>
   <%= link_to 'Log in', new_user_session_path %>
   <%= link_to 'Register', new_user_registration_path %>
-  <%= button_to "Sign in with Github", omniauth_authorize_path(User, :github), method: :post, data: { turbo: 'false' } %>
+  <%= button_to 'Sign in with Github', omniauth_authorize_path(User, :github), method: :post, data: { turbo: 'false' } %>
 <%#= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path %>
 <% end %>
