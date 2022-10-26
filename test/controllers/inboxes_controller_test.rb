@@ -1,7 +1,10 @@
 require 'test_helper'
 
 class InboxesControllerTest < ActionDispatch::IntegrationTest
+  include Devise::Test::IntegrationHelpers
+
   setup do
+    sign_in users(:one)
     @inbox = inboxes(:one)
   end
 
@@ -18,7 +21,7 @@ class InboxesControllerTest < ActionDispatch::IntegrationTest
   test 'should create inbox' do
     assert_difference('Inbox.count') do
       post inboxes_url,
-           params: { inbox: { description: @inbox.description, status: @inbox.status, title: @inbox.title, user_id: @inbox.user_id } }
+           params: { inbox: { description: @inbox.description, status: @inbox.status, title: @inbox.title } }
     end
 
     assert_redirected_to inbox_url(Inbox.last)
@@ -36,7 +39,7 @@ class InboxesControllerTest < ActionDispatch::IntegrationTest
 
   test 'should update inbox' do
     patch inbox_url(@inbox),
-          params: { inbox: { description: @inbox.description, status: @inbox.status, title: @inbox.title, user_id: @inbox.user_id } }
+          params: { inbox: { description: @inbox.description, status: @inbox.status, title: @inbox.title } }
     assert_redirected_to inbox_url(@inbox)
   end
 
