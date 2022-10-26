@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :messages
   resources :inboxes
   devise_for :users, controllers: {omniauth_callbacks: "users/omniauth_callbacks"}
   get 'pricing', to: 'static_pages#pricing'

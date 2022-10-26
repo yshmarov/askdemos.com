@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  inbox: one
+  user: one
+  body: MyText
+  status: incoming
+
+two:
+  inbox: two
+  user: two
+  body: MyText
+  status: incoming
