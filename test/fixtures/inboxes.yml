@@ -4,10 +4,10 @@ one:
   title: MyString
   description: MyText
   user: one
-  status: MyString
+  status: draft
 
 two:
   title: MyString
   description: MyText
   user: two
-  status: MyString
+  status: active
