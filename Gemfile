@@ -79,3 +79,5 @@ group :test do
 end
 
 gem 'devise', github: 'heartcombo/devise', branch: 'main'
+gem 'omniauth-github', github: 'omniauth/omniauth-github', branch: 'master'
+gem 'omniauth-rails_csrf_protection'
