@@ -42,3 +42,10 @@ en:
       notice: Inbox was successfully updated.
     destroy:
       notice: Inbox was successfully destroyed.
+  messages:
+    create:
+      notice: Message was successfully created.
+    update:
+      notice: Message was successfully updated.
+    destroy:
+      notice: Message was successfully destroyed.
