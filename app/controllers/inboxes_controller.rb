@@ -10,62 +10,51 @@ class InboxesController < ApplicationController
   def show
   end
 
-  # GET /inboxes/new
   def new
     @inbox = Inbox.new
   end
 
-  # GET /inboxes/1/edit
   def edit
   end
 
-  # POST /inboxes or /inboxes.json
   def create
     @inbox = Inbox.new(inbox_params)
+    @inbox.user = current_user
 
     respond_to do |format|
       if @inbox.save
         format.html { redirect_to inbox_url(@inbox), notice: t('.notice') }
-        format.json { render :show, status: :created, location: @inbox }
       else
         format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @inbox.errors, status: :unprocessable_entity }
       end
     end
   end
 
-  # PATCH/PUT /inboxes/1 or /inboxes/1.json
   def update
     respond_to do |format|
       if @inbox.update(inbox_params)
         format.html { redirect_to inbox_url(@inbox), notice: t('.notice') }
-        format.json { render :show, status: :ok, location: @inbox }
       else
         format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @inbox.errors, status: :unprocessable_entity }
       end
     end
   end
 
-  # DELETE /inboxes/1 or /inboxes/1.json
   def destroy
     @inbox.destroy
 
     respond_to do |format|
       format.html { redirect_to inboxes_url, notice: t('.notice') }
-      format.json { head :no_content }
     end
   end
 
   private
 
-  # Use callbacks to share common setup or constraints between actions.
   def set_inbox
     @inbox = Inbox.find(params[:id])
   end
 
-  # Only allow a list of trusted parameters through.
   def inbox_params
-    params.require(:inbox).permit(:title, :description, :user_id, :status)
+    params.require(:inbox).permit(:title, :description, :status)
   end
 end
