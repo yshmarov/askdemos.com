@@ -1,7 +1,10 @@
 require 'application_system_test_case'
 
 class InboxesTest < ApplicationSystemTestCase
+  include Devise::Test::IntegrationHelpers
+
   setup do
+    sign_in users(:one)
     @inbox = inboxes(:one)
   end
 
@@ -15,9 +18,8 @@ class InboxesTest < ApplicationSystemTestCase
     click_on 'New inbox'
 
     fill_in 'Description', with: @inbox.description
-    fill_in 'Status', with: @inbox.status
+    select @inbox.status, from: 'Status'
     fill_in 'Title', with: @inbox.title
-    fill_in 'User', with: @inbox.user_id
     click_on 'Create Inbox'
 
     assert_text 'Inbox was successfully created'
@@ -29,9 +31,8 @@ class InboxesTest < ApplicationSystemTestCase
     click_on 'Edit this inbox', match: :first
 
     fill_in 'Description', with: @inbox.description
-    fill_in 'Status', with: @inbox.status
+    select @inbox.status, from: 'Status'
     fill_in 'Title', with: @inbox.title
-    fill_in 'User', with: @inbox.user_id
     click_on 'Update Inbox'
 
     assert_text 'Inbox was successfully updated'
