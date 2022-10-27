@@ -1,0 +1,22 @@
+<div id="<%= dom_id message %>">
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Inbox:</strong>
+    <%= message.inbox %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">User:</strong>
+    <%= message.user %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Body:</strong>
+    <%= message.body %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Status:</strong>
+    <%= message.status %>
+  </p>
+  <%= button_to 'Destroy this message', inbox_message_path(message.inbox, message), method: :delete, class: 'mt-2 rounded-lg py-3 px-5 bg-gray-100 font-medium' %>
+</div>
