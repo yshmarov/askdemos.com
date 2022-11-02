@@ -24,4 +24,9 @@ class User < ApplicationRecord
     user.save
     user
   end
+
+  def username
+    return name if name.present?
+    email.split('@').first
+  end
 end
