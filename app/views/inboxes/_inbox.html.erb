@@ -13,6 +13,6 @@
     <%= inbox.created_at %>
     <%= inbox.status %>
     <%= link_to 'Edit', edit_inbox_path(inbox) %>
-    <%= button_to 'Destroy', inbox_path(@inbox), method: :delete %>
+    <%= button_to 'Destroy', inbox_path(inbox), method: :delete %>
   </div>
 </div>
