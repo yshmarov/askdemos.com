@@ -1,4 +1,4 @@
-<nav>
+<nav class='bg-slate-50 border border-slate-300 h-14 flex items-center justify-between px-6'>
   <%= link_to Rails.application.class.module_parent.name, root_path %>
   <% if user_signed_in? %>
     <%= link_to 'Inboxes', inboxes_path %>

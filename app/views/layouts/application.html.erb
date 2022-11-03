@@ -11,13 +11,15 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
+  <body class='flex flex-col min-h-screen bg-slate-50'>
     <header>
       <%= render 'shared/nav' %>
     </header>
-    <main class="">
       <%= render 'shared/flash' %>
-      <%= yield %>
+    <main class="flex justify-center p-4">
+      <div>
+        <%= yield %>
+      </div>
     </main>
     <%= render 'shared/footer' %>
   </body>
